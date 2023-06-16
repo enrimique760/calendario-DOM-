@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=,, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+      border-collapse: collapse;
+    }
+    
+    td,th{
+      border: 1px solid rgb(252, 243, 243);
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      cursor: pointer;
+      background-color: rgb(241, 114, 64);
+    }
+    
+    .selected {
+      background-color: rgb(7, 230, 238);
+    }
+  </style>
+<body>
+    <!--colete do usuario (usando input de data) e 
+    altere a cor do "quadrado" dessa data no calendario
+    dinamicamente. por exemplo, se o usuario escolher
+     01/10/2022 - o quadrado com o dia 01 deve mudar de cor.'  '-->
+     <h1>calendario</h1>
+
+     <div>
+        <label for="date-input">coloque uma data:</label>
+        <input type="date" id="date-input">
+        <button onclick="changeColor()">Alterar cor</button>
+      </div>
+    
+    <table id="calendar">
+        <thead>
+          <tr>
+            <th>dom</th>
+            <th>seg</th>
+            <th>ter</th>
+            <th>qua</th>
+            <th>qui</th>
+            <th>sex</th>
+            <th>sab</th>
+            <th>dom</th>
+          </tr>
+        </thead>
+        <tbody>
+           <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+           </tr>
+           <tr>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+           </tr>
+           <tr>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+            <td>21</td>
+           </tr>
+           <tr>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+           </tr>
+           <tr>
+            <td>30</td>
+            <td>31</td>
+        
+           </tr>
+        </tbody>
+    </table>
+    <style>
+        h1{
+            text-align: center;
+            background-color: rgb(70, 70, 241);
+        }
+        .calendar th, td {
+            border: solid 1px rgb(236, 229, 229);
+            width: 40px;
+            height: 30px;
+        }
+        .calendar{
+            text-align: center;
+        }
+    </style>
+    <script>
+        function changeColor() {
+          var selectedDate = document.getElementById('date-input').value;
+          var calendar = document.getElementById('calendar');
+          var cells = calendar.getElementsByTagName('td');
+          
+          for (var i = 0; i < cells.length; i++) {
+            var cellDate = cells[i].textContent;
+            if (cellDate === selectedDate.slice(-2)) {
+              cells[i].classList.toggle('selected');
+            } else {
+              cells[i].classList.remove('selected');
+            }
+          }
+        }
+      </script>
+</body>
+</html>
